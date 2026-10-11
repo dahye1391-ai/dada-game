@@ -13,7 +13,7 @@
 <section class="side records-section" id="result-panel" hidden><h2>이번 대결 기록</h2><p id="result-summary"></p><form id="record-form"><label for="record-name">기록에 남길 이름</label><div class="record-form"><input id="record-name" maxlength="16" placeholder="이름 또는 닉네임" autocomplete="nickname" required><button id="save-record" class="action" type="submit">기록 남기기</button></div></form><p class="rules">기록은 이 브라우저에 보관돼요. 공용 기록 서버가 연결되면 이름과 기록이 모두에게 공개됩니다.</p></section>
 <p id="save-status" role="status" aria-live="polite"></p><button id="retry-record" class="action secondary" hidden style="max-width:250px">공용 기록 저장 다시 시도</button>
 <section class="side records-section"><h2 id="records-title">나의 오셀로 기록</h2><p id="records-note" class="rules">이 브라우저에 남긴 최근 100개의 기록이에요.</p><button id="refresh-records" class="action secondary" style="max-width:180px">기록 새로고침</button><p id="records-status" role="status" aria-live="polite"></p><div class="table-wrap"><table><thead><tr><th>이름</th><th>난이도</th><th>승패</th><th>돌 수 (나 : 로봇)</th><th>플레이 시간</th><th>저장 상태</th></tr></thead><tbody id="records"></tbody></table></div></section>
-</main>
+<p style="text-align:center;margin:24px 0"><a style="color:#cbbaff;font-weight:800" href="https://dada-run-scores.perkymyna5.chatgpt.site/records?game=othello">모든 게임 공용 기록 보기 →</a></p></main>
 <script src="./records-config.js"></script>
 <script>
 const N=8,dirs=[[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
