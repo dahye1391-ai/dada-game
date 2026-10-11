@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dada-othello-records",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-11",
+  "workers_dev": true,
+  "d1_databases": [{"binding": "DB", "database_name": "dada-othello-records"}],
+  "vars": {"ALLOWED_ORIGINS": "https://dahye1391-ai.github.io"}
+}

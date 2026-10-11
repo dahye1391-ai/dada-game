@@ -14,6 +14,7 @@
 <p id="save-status" role="status" aria-live="polite"></p><button id="retry-record" class="action secondary" hidden style="max-width:250px">공용 기록 저장 다시 시도</button>
 <section class="side records-section"><h2 id="records-title">나의 오셀로 기록</h2><p id="records-note" class="rules">이 브라우저에 남긴 최근 100개의 기록이에요.</p><button id="refresh-records" class="action secondary" style="max-width:180px">기록 새로고침</button><p id="records-status" role="status" aria-live="polite"></p><div class="table-wrap"><table><thead><tr><th>이름</th><th>난이도</th><th>승패</th><th>돌 수 (나 : 로봇)</th><th>플레이 시간</th><th>저장 상태</th></tr></thead><tbody id="records"></tbody></table></div></section>
 </main>
+<script src="./records-config.js"></script>
 <script>
 const N=8,dirs=[[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
 const boardEl=document.querySelector('#board'),statusEl=document.querySelector('#status'),noticeEl=document.querySelector('#notice'),difficultyEl=document.querySelector('#difficulty'),hintsEl=document.querySelector('#hints');
@@ -41,7 +42,8 @@ function render(){
  statusEl.textContent=over?(score[1]===score[2]?`무승부예요! ${score[1]} : ${score[2]}`:score[1]>score[2]?`승리했어요! 🎉 ${score[1]} : ${score[2]}`:`로봇이 이겼어요. ${score[1]} : ${score[2]}`):thinking?'로봇이 생각 중이에요…':'흑돌을 놓아주세요.';
 }
 
-const API='https://dada-run-scores.perkymyna5.chatgpt.site/api/othello/scores';
+const API_BASE=(window.DADA_OTHELLO_API_BASE||'https://dada-run-scores.perkymyna5.chatgpt.site').replace(/\/$/,'');
+const API=API_BASE+'/api/othello/scores';
 const outcomes={win:'승리',loss:'패배',draw:'무승부'},difficultyNames={easy:'쉬움',normal:'보통',hard:'어려움'};
 const nameInput=document.querySelector('#record-name'),saveStatus=document.querySelector('#save-status'),retryBtn=document.querySelector('#retry-record');
 let runDifficulty='normal',elapsedMs=0,lastClock=performance.now(),clockStarted=false,clockActive=false,finishedRecord=null,saving=false,localRecords=[],pending=[],publicRecords=[],sharedAvailable=false;
